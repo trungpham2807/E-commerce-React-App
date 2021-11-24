@@ -1,23 +1,23 @@
 export const sliderItems = [
   {
     id: 1,
-    img: "https://i.ibb.co/XsdmR2c/1.png",
-    title: "SUMMER SALE",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    img: "https://www.baltimoresun.com/resizer/nSskDgg9tspoUZtHu0BCNqrqdYE=/1200x0/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/QYX663VZVNB5BOYRUFTYBTIJIY.jpg",
+    title: "Trung Pham's Brand",
+    desc: "winter is coming! 100% discount",
     bg: "f5fafd",
   },
   {
     id: 2,
-    img: "https://i.ibb.co/DG69bQ4/2.png",
-    title: "AUTUMN COLLECTION",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fcf1ed",
+    img: "https://i.pinimg.com/736x/d9/77/15/d977157680df0847da94d4abe15f960b--casual-chique-ted-baker.jpg",
+    title: "Men Collection",
+    desc: "Get 30% off for new arrivals.",
+    bg: "84abaa",
   },
   {
     id: 3,
     img: "https://i.ibb.co/cXFnLLV/3.png",
-    title: "LOUNGEWEAR LOVE",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    title: "Women Collection",
+    desc: " Get 30% off for new arrivals",
     bg: "fbf0f4",
   },
 ];
@@ -25,21 +25,21 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "SHIRT STYLE!",
+    img: "https://vnn-imgs-f.vgcloud.vn/2019/10/04/10/bo-anh-ky-yeu-trong-treo-chia-tay-tuoi-sinh-vien-cua-a-hau-bui-phuong-nga-6.jpg",
+    title: "Women Collection",
     cat:"women"
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
-    cat:"coat"
+    img: "https://i.pinimg.com/originals/39/07/c4/3907c41616c1bdec6a582573b1915b86.jpg",
+    title: "Men Collection",
+    cat:"men"
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    title: "LIGHT JACKETS",
-    cat:"jeans"
+    img: "https://i.pinimg.com/originals/ac/e4/95/ace495cd7984a7eff2554572bc0cd118.jpg",
+    title: "Spcial Collection",
+    cat:"special"
   },
 ];
 

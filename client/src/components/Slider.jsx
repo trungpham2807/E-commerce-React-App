@@ -54,6 +54,8 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
   height: 80%;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
 `;
 
 const InfoContainer = styled.div`
@@ -116,3 +118,4 @@ const Slider = () => {
 };
 
 export default Slider;
+
