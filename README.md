@@ -3,10 +3,10 @@
 ## Description
 E-commerce react app with backend and client side.
 ## Technologies
-- CLIENT-SIDE: ReactJS/ Redux
-- BACK-END: Node/ Express/ MongoDB
-- AUTHENTICATION AND AUTHORIZATION: BEARER/ JWT/ PASSPORT.JS/ OAUTH 2.0/ HASH 
-- STYLING: STYLED-COMPONENTS
+- Client-side: ReactJS/ Redux
+- Back-end: Node/ Express/ MongoDB
+- Authentication and authorization: Bearer/ Jwt/ Passport.js/ OAuth 2.0/ Hash 
+- styling: styled-components, MaterialUI (MUI)
 ## Images
 ![1](/homepage_1.png)
 ![2](/homepage_2.png)
