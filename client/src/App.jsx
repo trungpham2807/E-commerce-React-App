@@ -10,9 +10,10 @@ import {
   Route,
   Navigate,
 } from "react-router-dom"
-
+import {useSelector} from "react-redux"
 const App = () => {
-  const user = true;
+  // update user from store when login/ register
+  const user = useSelector(state => state.user.currentUser)
   return (
     <Router>
       <Routes>
@@ -23,7 +24,7 @@ const App = () => {
       <Route path="/cart" element = {<Cart/>} />
       <Route path="/login" element={user ? <Navigate to="/" />: <Login />} />
       <Route path="/register" element={user ? <Navigate to="/" />: <Register />} />
-
+ 
 
       </Routes>
 

@@ -21,12 +21,18 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
+          <Link to="/" style={{ textDecoration: 'none', color: "black" }}>
           <Logo>Trung Pham</Logo>
+          </Link>
         </Center>
         <Right>
+          <Link to="/register" style={{ textDecoration: 'none', color: "black" }}>
           <MenuItem>REGISTER</MenuItem>
+          </Link>
+          <Link to="/login" style={{ textDecoration: 'none',  color: "black" }}>
           <MenuItem>SIGN IN</MenuItem>
-          <Link to="/cart">
+          </Link>
+          <Link to="/cart" style={{ textDecoration: 'none',  color: "black" }}>
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">
               <ShoppingCartOutlined />

@@ -1,5 +1,39 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import {useState} from "react"
+const Register = () => {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+  }
+
+  return (
+    <Container>
+      <Wrapper>
+        <Title>CREATE AN ACCOUNT</Title>
+        <Form>
+          <Input placeholder="name" onChange={(e)=> setName(e.target.value)}/>
+          <Input placeholder="last name" onChange={(e)=> setLastName(e.target.value)}/>
+          <Input placeholder="username" onChange={(e)=> setUserName(e.target.value)}/>
+          <Input placeholder="email" onChange={(e)=> setEmail(e.target.value)}/>
+          <Input placeholder="password" onChange={(e)=> setPassword(e.target.value)}/>
+          <Input placeholder="confirm password" onChange={(e)=> setConfirmPassword(e.target.value)}/>
+          <Agreement>
+            By creating an account, I consent to the processing of my personal
+            data in accordance with the <b>PRIVACY POLICY</b>
+          </Agreement>
+          <Button onClick = {handleClick}>CREATE</Button>
+        </Form>
+      </Wrapper>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   width: 100vw;
@@ -8,7 +42,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6UuTEbEK1xk5ly3RvQHDwctRrmEvGbg1XnA&usqp=CAU")
       center;
   background-size: cover;
   display: flex;
@@ -53,28 +87,5 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
 `;
-
-const Register = () => {
-  return (
-    <Container>
-      <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
-          <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
-          </Agreement>
-          <Button>CREATE</Button>
-        </Form>
-      </Wrapper>
-    </Container>
-  );
-};
 
 export default Register;

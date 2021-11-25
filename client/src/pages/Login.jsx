@@ -1,6 +1,35 @@
 import styled from "styled-components";
 import {mobile} from "../responsive";
+import {useState} from "react"
+import { login } from "../redux/apiCall";
+import { useDispatch, useSelector } from "react-redux";
+const Login = () => {
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("")
+  const dispatch = useDispatch();
 
+  const {isFetching, error} = useSelector(state => state.user)
+  const handleClick = (e) => {
+    // Click login -> refresh page -> to prevent
+    e.preventDefault()
+    login(dispatch, {username, password})
+  }
+  return (
+    <Container>
+      <Wrapper>
+        <Title>SIGN IN</Title>
+        <Form>
+          <Input placeholder="username" onChange={(e)=> setUserName(e.target.value)}/>
+          <Input placeholder="password" type="password" onChange={(e)=> setPassword(e.target.value)}/>
+          <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
+          {error && <Error>Something went wrong! Please check your username or password</Error>}
+          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link>CREATE A NEW ACCOUNT</Link>
+        </Form>
+      </Wrapper>
+    </Container>
+  );
+};
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -8,7 +37,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsOa4q4n4lY6uI554wKyWzQwUH0RWSqDul3IciR4ARyMxgKwQasqz_dWuOPcjhqwzDeEk&usqp=CAU")
       center;
   background-size: cover;
   display: flex;
@@ -48,6 +77,11 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  /* if login disabled -> cursor not allowed and green */
+  &:disabled{
+    color: green;
+    cursor: not-allowed;
+  }
 `;
 
 const Link = styled.a`
@@ -57,21 +91,7 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const Login = () => {
-  return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
-      </Wrapper>
-    </Container>
-  );
-};
-
+const Error = styled.span`
+  color: red;
+`
 export default Login;
