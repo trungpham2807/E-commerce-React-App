@@ -4,9 +4,12 @@ import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
-
+import {useSelector} from "react-redux"
+import {Link} from "react-router-dom"
 
 const Navbar = () => {
+  const quantity = useSelector(state => state.cart.quantity)
+  
   return (
     <Container>
       <Wrapper>
@@ -23,11 +26,13 @@ const Navbar = () => {
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
+          <Link to="/cart">
           <MenuItem>
-            <Badge badgeContent={0} color="primary">
+            <Badge badgeContent={quantity} color="primary">
               <ShoppingCartOutlined />
             </Badge>
           </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>

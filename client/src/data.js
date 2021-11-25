@@ -38,7 +38,7 @@ export const categories = [
   {
     id: 3,
     img: "https://i.pinimg.com/originals/ac/e4/95/ace495cd7984a7eff2554572bc0cd118.jpg",
-    title: "Spcial Collection",
+    title: "Special Collection",
     cat:"special"
   },
 ];

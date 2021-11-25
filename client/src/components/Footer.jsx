@@ -10,7 +10,7 @@ import {
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
-
+import {Link} from "react-router-dom"
 const Footer = () => {
   return (
     <Container>
@@ -20,18 +20,26 @@ const Footer = () => {
           My E-Commerce Website
         </Desc>
         <SocialContainer>
+          <a href="https://www.facebook.com/">
           <SocialIcon color="3B5999">
             <Facebook />
           </SocialIcon>
+          </a>
+          <a href="https://www.instagram.com/">
           <SocialIcon color="E4405F">
             <Instagram />
           </SocialIcon>
+          </a>
+          <a href="https://twitter.com/?lang=vi">
           <SocialIcon color="55ACEE">
             <Twitter />
           </SocialIcon>
+          </a>
+          <a href="https://www.pinterest.com/business/hub/">
           <SocialIcon color="E60023">
             <Pinterest />
           </SocialIcon>
+          </a>
         </SocialContainer>
       </Left>
       <Center>
