@@ -59,6 +59,8 @@ router.get("/find/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
+  const qTitle = req.query.title;
+
   try {
     let products;
     // check newest 
@@ -72,7 +74,9 @@ router.get("/", async (req, res) => {
           $in: [qCategory],
         },
       });
-    } else {
+    } else if (qTitle) {
+      products = await Product.find({title: qTitle});
+  } else {
         // no query -> show others
       products = await Product.find();
     }

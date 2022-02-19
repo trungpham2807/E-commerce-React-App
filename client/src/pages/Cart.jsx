@@ -1,10 +1,13 @@
-import { Add, Remove } from "@material-ui/icons";
+
+import { Add, DeleteOutlined, Remove } from '@material-ui/icons';
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
-import {addProduct} from "../redux/cartRedux"
+import { Link } from 'react-router-dom';
+
+import {remQuant, addQuant, removeProduct, addProduct, resetCart} from "../redux/cartRedux";
 import {useDispatch, useSelector} from "react-redux"
 import {useState, useEffect} from "react"
 import StripeCheckout from "react-stripe-checkout"
@@ -18,24 +21,42 @@ const Cart = () => {
   const onToken = (token) => {
     setStripeToken(token)
   }
-
-  // const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   // // Render after checkout
-  // useEffect(()=> {
-  //   const makeRequest = async () => {
-  //     try{
-  //       const res = await userRequest.post("/checkout/payment",
-  //       {tokenId: stripeToken,
-  //         amout: cart.total * 100,
-  //       })
-  //       navigate("/success", {data: res.data})
+  useEffect(()=> {
+    const makeRequest = async () => {
+      try{
+        const res = await userRequest.post("/checkout/payment",
+        {tokenId: stripeToken.id,
+          amount: cart.total * 100,
+        })
+        navigate("/success", {data: res.data})
 
-  //     }catch(err){
+      }catch(err){
 
-  //     }
-  //   }
-  //   makeRequest()
-  // }, [stripeToken, cart.total, navigate])
+      }
+    }
+    makeRequest()
+  }, [stripeToken, cart.total, navigate])
+  const handleQuantity = (type, product) => {
+    if (type === 'desc') {
+        product.quantity > 1 && dispatch(remQuant(product))
+    } else if (type === "inc" 
+    // && product.quantity < product.stock
+    ){
+      // console.log("as")
+        dispatch(addQuant(product))
+    }
+};
+
+const handleDelete = (product) => {
+    dispatch(removeProduct(product));
+};
+const handleCheckOut = (product) => {
+  // dispatch(resetCart(product));
+  navigate("/success")
+};
   return (
     <Container>
       <Navbar />
@@ -43,9 +64,11 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
+          <Link to="/">
           <TopButton>CONTINUE SHOPPING</TopButton>
+          </Link>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Shopping Bag({cart.quantity})</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
@@ -70,12 +93,13 @@ const Cart = () => {
                  </Details>
                </ProductDetail>
                <PriceDetail>
-                 <ProductAmountContainer>
-                   <Add />
-                   <ProductAmount>{product.quantity}</ProductAmount>
-                   <Remove />
-                 </ProductAmountContainer>
+               <ProductAmountContainer>
+                  <Remove style={{cursor:"pointer"}} onClick={() => handleQuantity('desc', product)}/>
+                  <ProductAmount>{product.quantity}</ProductAmount>
+                  <Add style={{cursor:"pointer"}} onClick={() => handleQuantity('inc', product)}/>
+                </ProductAmountContainer>
                  <ProductPrice>$ {product.price * product.quantity}</ProductPrice>
+                 <DeleteOutlined onClick={() => handleDelete(product)} style={{cursor: "pointer", marginTop: "10px"}}/>
                </PriceDetail>
              </Product>
             ))}
@@ -111,7 +135,7 @@ const Cart = () => {
             amount={cart.total*100}
             token={onToken}
             stripekey={STRIPE_KEY}>
-            <Button>CHECKOUT NOW</Button>
+            <Button onClick={() => handleCheckOut()}>CHECKOUT NOW</Button>
             </StripeCheckout>
           </Summary>
         </Bottom>

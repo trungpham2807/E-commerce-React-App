@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Product from "./Product";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-
+import {publicRequest} from "../apiService"
 
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
@@ -12,10 +12,10 @@ const Products = ({ cat, filters, sort }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
+        const res = await publicRequest.get(
           cat
-            ? `http://localhost:5000/api/products?category=${cat}`
-            : "http://localhost:5000/api/products"
+            ? `/products?category=${cat}`
+            : "/products"
         );
         setProducts(res.data);
       } catch (err) {}

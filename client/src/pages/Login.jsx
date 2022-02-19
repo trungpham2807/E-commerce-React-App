@@ -3,16 +3,20 @@ import {mobile} from "../responsive";
 import {useState} from "react"
 import { login } from "../redux/apiCall";
 import { useDispatch, useSelector } from "react-redux";
+import {useNavigate} from 'react-router-dom';
+
 const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("")
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {isFetching, error} = useSelector(state => state.user)
   const handleClick = (e) => {
     // Click login -> refresh page -> to prevent
     e.preventDefault()
     login(dispatch, {username, password})
+    navigate('/')
   }
   return (
     <Container>

@@ -2,6 +2,18 @@
 
 ## Description
 E-commerce react app with backend and client side.
+
+## Features
+- User are welcomed to the landing page with clean and appealing UI with displays of latest clothes selections in hottest categories;
+- User can go to Product Page and easily filter clothes by categories or sort by prices;
+- User can search for clothes names;
+- User can click each product card to the particular product page with more in-detail information of the product selected;
+- User can register to make new account;
+- User can login/log out with authentication and authorization;
+- Authorized User (who has signed up and logged in) can add product to cart;
+- User can see cart detail;
+- User can dynamically update or remove product(s) from cart;
+- User can check out (using Stripe JS);
 ## Technologies
 - Client-side: ReactJS/ Redux
 - Back-end: Node/ Express/ MongoDB
