@@ -4,6 +4,7 @@ import {useState, useMemo, useEffect} from "react";
 import "./home.css";
 import { userRequest } from "../../apiService";
 
+
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
   const [saleStats, setSaleStats] = useState([]);
@@ -63,9 +64,11 @@ export default function Home() {
   // console.log("here", userStats);
   return (
     <div className="home">
+   
       <FeaturedInfo />
       <Chart data={userStats} title="User Analytics" grid dataKey="Active User"/>
       <Chart data={saleStats} title="Sales Analytics" grid dataKey="Recorded Sales"/>
+
     </div>
   );
 }

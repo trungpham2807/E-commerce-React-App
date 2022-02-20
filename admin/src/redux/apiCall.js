@@ -1,4 +1,4 @@
-import { loginFailure, loginStart, loginSuccess, } from "./userRedux";
+import { loginFailure, loginStart, loginSuccess, resetUser} from "./userRedux";
 import {publicRequest, userRequest} from "../apiService";
 import { 
     getProductRequest, 
@@ -18,17 +18,19 @@ import {
 export const login = async (dispatch, user) => {
     dispatch(loginStart());
     try {
-        const res = await publicRequest.post("/auth/login", user);
+        const res = await userRequest.post("/auth/login", user);
         dispatch(loginSuccess(res.data));
+        console.log(res.data)
     } catch (err) {
         dispatch(loginFailure())
+        console.log(err)
     }
 };
 
 export const getProducts = async (dispatch) => {
     dispatch(getProductRequest());
     try {
-        const res = await publicRequest.get("/products");
+        const res = await userRequest.get("/products");
         dispatch(getProductSuccess(res.data));
     } catch (err) {
         dispatch(getProductFailure())
