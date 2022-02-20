@@ -1,7 +1,7 @@
 # E-commerce-React-App
-Link backend: https://ecom-react-app-server.herokuapp.com/
-Link client: https://ecom-trung.netlify.app/
-Link admin: https://ecom-app-admin.netlify.app/
+- Link backend: https://ecom-react-app-server.herokuapp.com/
+- Link client: https://ecom-trung.netlify.app/
+- Link admin: https://ecom-app-admin.netlify.app/
 ## Description
 E-commerce react app with backend and client side.
 
